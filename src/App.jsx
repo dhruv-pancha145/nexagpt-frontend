@@ -32,7 +32,7 @@ function App() {
 const getallThreads = async () => {
     if (!token) return; // अगर टोकन नहीं है तो कॉल ही मत करो
     try {
-      const response = await fetch("http://localhost:8080/api/thread", {
+      const response = await fetch("https://nexagpt-backend.onrender.com/api/thread", {
         headers: {
           // टोकन पास किया ताकि 401 Unauthorized एरर न आए
           "Authorization": `Bearer ${token}` 

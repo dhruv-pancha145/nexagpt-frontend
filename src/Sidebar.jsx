@@ -37,7 +37,7 @@ function Sidebar() {
     setcurrThreadId(newThreadId);
     try {
       // 3. यहाँ भी टोकन पास करना होगा ताकि ऑथराइजेशन एरर न आए
-      const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`, {
+      const response = await fetch(`https://nexagpt-backend.onrender.com/api/thread/${newThreadId}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -55,7 +55,7 @@ function Sidebar() {
   const deleteThread = async (threadId) => {
     try {
       // 4. यहाँ भी टोकन पास करना होगा
-      const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, {
+      const response = await fetch(`https://nexagpt-backend.onrender.com/api/thread/${threadId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`

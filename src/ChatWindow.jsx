@@ -45,7 +45,7 @@ function ChatWindow() {
         body: JSON.stringify({ message: prompt, threadId: currThreadId })
     };
     try {
-      const response = await fetch("http://localhost:8080/api/chat", options);
+      const response = await fetch("https://nexagpt-backend.onrender.com/api/chat", options);
       const res = await response.json();
       
       if (!response.ok) throw new Error(res.error || "Failed to fetch response");
