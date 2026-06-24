@@ -1,0 +1,104 @@
+.authContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #212121;
+}
+
+.authCard {
+  background-color: #171717;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid #2f2f2f;
+  text-align: center;
+}
+
+.authCard h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #ececec;
+}
+
+.inputGroup {
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+.inputGroup label {
+  display: block;
+  font-size: 0.85rem;
+  color: #b4b4b4;
+  margin-bottom: 0.4rem;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px;
+  background-color: #212121;
+  border: 1px solid #424242;
+  border-radius: 8px;
+  color: #ececec;
+  font-size: 0.9rem;
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #339cff;
+}
+
+.authBtn {
+  width: 100%;
+  padding: 12px;
+  background-color: #339cff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.authBtn:hover {
+  background-color: #2582dd;
+}
+
+.authToggleText {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #b4b4b4;
+}
+
+.authToggleText span {
+  color: #339cff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.authToggleText span:hover {
+  text-decoration: underline;
+}
+
+.authError {
+  background-color: rgba(248, 113, 113, 0.1);
+  color: #f87171;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.authSuccess {
+  background-color: rgba(52, 211, 153, 0.1);
+  color: #34d399;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}

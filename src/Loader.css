@@ -1,0 +1,25 @@
+.loader {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  animation: rotate 1s linear infinite;
+   margin: 0 auto 12px auto;
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(#00D4FF 2px, transparent 2px) center/2px 100%,
+    linear-gradient(#00D4FF 2px, transparent 2px) center/100% 2px;
+}
+
+.loader::after {
+  transform: rotate(45deg);
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
