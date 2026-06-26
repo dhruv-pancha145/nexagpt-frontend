@@ -21,7 +21,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
 
-  // ऐप लोड होने पर लोकलस्टोरेज से पुराना यूजर डेटा निकालें (यदि हो)
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
@@ -30,17 +29,15 @@ function App() {
   }, []);
 
 const getallThreads = async () => {
-    if (!token) return; // अगर टोकन नहीं है तो कॉल ही मत करो
+    if (!token) return; 
     try {
       const response = await fetch("https://nexagpt-backend.onrender.com/api/thread", {
         headers: {
-          // टोकन पास किया ताकि 401 Unauthorized एरर न आए
           "Authorization": `Bearer ${token}` 
         }
       });
       const res = await response.json();
       
-      // यह सुरक्षा जांच एरर रोकेगी: अगर बैकएंड ऐरे भेजता है तभी मैप करें
       if (Array.isArray(res)) {
         const filterData = res.map(thread => ({ threadId: thread.threadId, title: thread.title }));
         setallThreads(filterData);
@@ -52,7 +49,6 @@ const getallThreads = async () => {
     }
   }
 
-  // लॉगिन करने का फंक्शन (Auth.jsx कॉल करेगा)
   const loginUser = (userToken, userData) => {
     setToken(userToken);
     setUser(userData);
@@ -60,11 +56,10 @@ const getallThreads = async () => {
     localStorage.setItem("user", JSON.stringify(userData));
   };
 
-  // लॉगआउट करने का फंक्शन (ChatWindow dropdown कॉल करेगा)
   const logoutUser = () => {
     setToken(null);
     setUser(null);
-    localStorage.clear(); // सब साफ़
+    localStorage.clear(); 
     setMessages([]);
     setallThreads([]);
     setcurrThreadId(uuidv1());
@@ -82,13 +77,13 @@ const getallThreads = async () => {
     getallThreads,  
     displayedReply, setDisplayedReply,
     isTyping, setIsTyping,
-    user, token, loginUser, logoutUser // इन नई वैल्यूज को प्रोवाइडर में पास किया
+    user, token, loginUser, logoutUser 
   };
 
   return (
     <>
       <div className="app">
-        <MyContext.Provider value={providerValues}> {/* 'value' को सही तरीके से Context.Provider के साथ इस्तेमाल किया */}
+        <MyContext.Provider value={providerValues}> 
           {token ? (
             <>
               <Sidebar />

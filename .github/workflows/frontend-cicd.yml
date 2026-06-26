@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Run Frontend Tests
-        run: npm test # 🛑 Agar frontend test fail hua toh deploy nahi hoga
+        run: npm test 
 
   deploy-frontend:
     runs-on: ubuntu-latest

@@ -2,9 +2,9 @@ import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext";
 import { v1 as uuidv1 } from "uuid";
+import logoSvg from "./assets/logo.svg"; 
 
 function Sidebar() {
-  // 1. Context से token और getallThreads को निकाला
   const { 
     allThreads, 
     setallThreads, 
@@ -15,15 +15,14 @@ function Sidebar() {
     setcurrThreadId, 
     setMessages,
     token,
-    getallThreads // App.jsx वाला ग्लोबल फंक्शन इस्तेमाल करेंगे
+    getallThreads 
   } = useContext(MyContext);
 
   useEffect(() => {
-    // 2. केवल तभी थ्रेड्स लोड करें जब यूज़र के पास टोकन (लॉगिन) हो
     if (token) {
       getallThreads();
     }
-  }, [currThreadId, token]); // token बदलने पर भी री-रन होगा
+  }, [currThreadId, token]); 
 
   const createNewChat = () => {
     setnewChat(true);
@@ -36,7 +35,6 @@ function Sidebar() {
   const changeThread = async (newThreadId) => {
     setcurrThreadId(newThreadId);
     try {
-      // 3. यहाँ भी टोकन पास करना होगा ताकि ऑथराइजेशन एरर न आए
       const response = await fetch(`https://nexagpt-backend.onrender.com/api/thread/${newThreadId}`, {
         headers: {
           "Authorization": `Bearer ${token}`
@@ -54,7 +52,6 @@ function Sidebar() {
 
   const deleteThread = async (threadId) => {
     try {
-      // 4. यहाँ भी टोकन पास करना होगा
       const response = await fetch(`https://nexagpt-backend.onrender.com/api/thread/${threadId}`, {
         method: "DELETE",
         headers: {
@@ -75,13 +72,11 @@ function Sidebar() {
   return (
     <>
       <section className="sidebar">
-        {/* new chat button */}
         <button onClick={createNewChat}>
-          <img src="src/assets/logo.svg" alt="gpt logo" className="logo" />
+          <img src={logoSvg} alt="gpt logo" className="logo" />
           <span><i className="fa-solid fa-pen-to-square" style={{ color: "rgb(255,255,255)" }}></i></span>
         </button>
 
-        {/* history */}
         <ul className="history">
           {allThreads?.map((thread, idx) => (
             <li key={idx}
@@ -91,7 +86,7 @@ function Sidebar() {
               {thread.title}
               <i className="fa-solid fa-trash"
                 onClick={(e) => {
-                  e.stopPropagation(); // इवेंट बबलिंग रोकें
+                  e.stopPropagation(); 
                   deleteThread(thread.threadId);
                 }}
               ></i>
@@ -99,7 +94,6 @@ function Sidebar() {
           ))}
         </ul>
 
-        {/* sign */}
         <div className="sign">
           <p>By ApnaCollege &hearts;</p>
         </div>

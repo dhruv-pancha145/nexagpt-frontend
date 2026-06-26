@@ -21,7 +21,6 @@ function ChatWindow() {
     setIsTyping,      
     displayedReply,   
     setDisplayedReply,
-    // 1. कॉन्टेक्स्ट से लॉग इन यूजर और लॉगआउट फंक्शन निकाला
     user,
     token,
     logoutUser
@@ -39,7 +38,6 @@ function ChatWindow() {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
-          // 2. रिक्वेस्ट हेडर में टोकन भेजना जरूरी है ताकि बैकएंड इसे पहचान सके
           "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({ message: prompt, threadId: currThreadId })
@@ -100,7 +98,6 @@ function ChatWindow() {
           {showDropdown && (
             <div className="dropDown">
               <div className="dropDownItem userProfileHeader" style={{ borderBottom: "1px solid #2f2f2f", paddingBottom: "8px" }}>
-                {/* 3. यहाँ यूज़र का डायनामिक नाम दिखेगा */}
                 <div style={{ fontWeight: "bold", textTransform: "uppercase" }}>{user?.name || "User"}</div>
                 <div style={{ fontSize: "0.75rem", color: "#b4b4b4" }}>Free Plan</div>
               </div>
@@ -110,7 +107,6 @@ function ChatWindow() {
               <div className="dropDownItem"><i className="fa-solid fa-gear"></i> Settings</div>
               <div className="dropDownItem" style={{ borderTop: "1px solid #2f2f2f", marginTop: "5px", paddingTop: "8px" }}><i className="fa-solid fa-circle-question"></i> Help</div>
               
-              {/* 4. लॉगआउट पर क्लिक करते ही सेशन खत्म होगा */}
               <div className="dropDownItem" onClick={logoutUser} style={{ color: "#f87171" }}>
                 <i className="fa-solid fa-right-from-bracket" style={{ color: "#f87171" }}></i> Log out
               </div>

@@ -96,15 +96,14 @@ input:focus {
 }
 
 /* dropdown css */
-/* dropdown css */
 .dropDown {
     position: absolute;
-    top: 3.5rem; /* आइकॉन के ठीक नीचे लाने के लिए */
+    top: 3.5rem; 
     right: 2rem;
-    width: 220px; /* विड्थ थोड़ी बढ़ाई ताकि नाम सही से आये */
-    background-color: #171717; /* इमेज जैसा गहरा डार्क बैकग्राउंड */
+    width: 220px; 
+    background-color: #171717; 
     padding: 0.5rem;
-    border-radius: 12px; /* मॉडर्न कर्व्ड कॉर्नर्स */
+    border-radius: 12px; 
     text-align: left;
     z-index: 1000;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
@@ -118,7 +117,7 @@ input:focus {
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px; /* आइकॉन और टेक्स्ट के बीच गैप */
+    gap: 10px; 
 }
 
 .dropDownItem i {

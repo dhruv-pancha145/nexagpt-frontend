@@ -34,12 +34,10 @@ function Auth() {
       }
 
       if (isLogin) {
-        // अगर लॉगिन सफल रहा, तो कॉन्टेक्स्ट का फंक्शन कॉल करें
         loginUser(res.token, res.user);
       } else {
-        // अगर साइनअप सफल रहा
         setMessage(res.success);
-        setIsLogin(true); // यूजर को लॉगिन स्क्रीन पर भेजें
+        setIsLogin(true); 
         setName("");
         setPassword("");
       }
